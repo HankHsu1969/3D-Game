@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>3D 麻將塔</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+<div id="bg"></div>
+<div id="app"></div>
+
+<header id="hud">
+  <div class="brand">麻將塔<span>3D Mahjong Tower</span></div>
+  <div class="stats">
+    <div class="stat"><label>剩餘</label><b id="remain">144</b></div>
+    <div class="stat"><label>可配對</label><b id="moves">0</b></div>
+    <div class="stat"><label>時間</label><b id="time">00:00</b></div>
+    <div class="stat"><label>分數</label><b id="score">0</b></div>
+  </div>
+  <nav class="actions">
+    <button id="btnHint" title="提示 (H)">💡 提示</button>
+    <button id="btnUndo" title="悔棋 (Z)">↶ 悔棋</button>
+    <button id="btnShuffle" title="洗牌 (S)">🔀 洗牌</button>
+    <button id="btnNew" title="新局 (N)">🀄 新局</button>
+    <button id="btnSound" title="音效開關 (M)">🔊</button>
+    <button id="btnMusic" title="背景音樂">🎵</button>
+  </nav>
+</header>
+
+<div id="overlay" class="show">
+  <div class="panel">
+    <h1>麻將塔</h1>
+    <p class="sub">找出兩張相同且「可移動」的牌，將它們消除。<br/>可移動＝上方沒有被壓住，且左邊或右邊至少一側空出。<br/>花牌（梅蘭菊竹）彼此可配、季節牌（春夏秋冬）彼此可配。</p>
+    <div class="layouts">
+      <button data-layout="turtle" class="primary">🐢 經典烏龜（144 張）</button>
+      <button data-layout="pyramid">🔺 金字塔（120 張）</button>
+      <button data-layout="fortress">🏯 城堡（106 張）</button>
+      <button data-layout="easy">🌱 入門（36 張）</button>
+    </div>
+    <p class="tip">滑鼠拖曳可旋轉視角、滾輪縮放　·　快捷鍵 H 提示 / Z 悔棋 / S 洗牌</p>
+  </div>
+</div>
+
+<div id="msg" class="toast"></div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
